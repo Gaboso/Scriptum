@@ -31,4 +31,7 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 /.idea/modules.xml
-/.idea/SCRIPTS.iml
+/.idea/*.iml
+
+*.iml
+/.idea/libraries/

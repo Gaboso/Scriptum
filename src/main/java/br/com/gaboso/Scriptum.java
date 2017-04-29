@@ -1,9 +1,12 @@
 package br.com.gaboso;
 
-import java.io.BufferedReader;
+import br.com.gaboso.module.BowerModule;
+import br.com.gaboso.module.GitModule;
+import br.com.gaboso.module.MavenModule;
+import br.com.gaboso.module.NpmModule;
+import org.apache.log4j.Logger;
+
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,9 +18,7 @@ import java.util.List;
  */
 public class Scriptum {
 
-    private static final String CMD_EXE = "cmd.exe";
-    private static final String SLASH_C = "/c";
-    private static final String DIRETORIO = "\r\n\r\nDiretorio: ";
+    private static final Logger LOGGER = Logger.getLogger(Scriptum.class);
 
     public static void main(String[] args) {
         if (args.length > 0) {
@@ -30,40 +31,20 @@ public class Scriptum {
         }
     }
 
-    private void executeCMD(String cmd) {
-        ProcessBuilder builder = new ProcessBuilder(CMD_EXE, SLASH_C, cmd);
-        builder.redirectErrorStream(true);
-
-        try {
-            Process p = builder.start();
-            BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            String line;
-
-            while (true) {
-                line = r.readLine();
-                if (line == null)
-                    break;
-
-                System.out.println(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     private List<File> getFoldersFromWorkspace(String path) {
         File fileInitial = new File(path);
         File[] listFiles = fileInitial.listFiles();
         List<File> folders = new ArrayList<>();
 
         if (listFiles != null) {
-            System.out.println("| LISTA DE DIRETORIOS DO WORKSPACE |");
+            LOGGER.info("------------- LISTA DE DIRETORIOS DO WORKSPACE -------------");
             for (File file : listFiles) {
                 if (file.isDirectory()) {
                     folders.add(file);
-                    System.out.println("| "+file.getName()+" |");
+                    LOGGER.info(file.getName());
                 }
             }
+            LOGGER.info("------------------------------------------------------------");
         }
 
         return folders;
@@ -72,28 +53,23 @@ public class Scriptum {
     private void analyzeFolders(File file) {
         File[] listFiles = file.listFiles();
 
+        //Is Git Project
+        if (GitModule.isProject(file.getPath())) {
+            GitModule.executeCommands(file.getName(), file.getPath());
+        }
+
         if (listFiles != null) {
-            for (File fileFromList : listFiles) {
+            //Is Maven Project
+            if (MavenModule.isProject(listFiles)) {
+                MavenModule.executeCommands(file.getName(), file.getPath());
+            }
 
-                if (fileFromList.isDirectory() && fileFromList.getName().contains(".git")) {
-                    System.out.println(DIRETORIO + file.getName() + " | Atualizando GIT");
-                    executeCMD("cd " + file.getPath() + "\\ && git fetch && git pull origin");
-                }
+            if (NpmModule.isProject(listFiles)) {
+                NpmModule.executeCommands(file.getName(), file.getPath());
+            }
 
-                if ("pom.xml".equals(fileFromList.getName())) {
-                    System.out.println(DIRETORIO + file.getName() + " | Atualizando MAVEN");
-                    executeCMD("cd " + file.getPath() + "\\ && mvn clean install -DskipTests=true");
-                }
-
-                if ("package.json".equals(fileFromList.getName())) {
-                    System.out.println(DIRETORIO + file.getName() + " | Atualizando NPM");
-                    executeCMD("cd " + file.getPath() + "\\ && npm install && npm update");
-                }
-
-                if ("bower.json".equals(fileFromList.getName())) {
-                    System.out.println(DIRETORIO + file.getName() + " | Atualizando BOWER");
-                    executeCMD("cd " + file.getPath() + "\\ && bower install && bower update");
-                }
+            if (BowerModule.isProject(listFiles)) {
+                BowerModule.executeCommands(file.getName(), file.getPath());
             }
         }
     }
