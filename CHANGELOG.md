@@ -2,6 +2,11 @@
 
 Este arquivo descreve o conteúdo de cada release do projeto.
 
+# 1.1
+* Modificado processo de build para executar com o `mvn install`.
+* Alterado nome final do jar para o nome do `artifactId` ficando reduzido a `scriptum.jar`
+* Ajuste dos exemplos no README.md para se adequar ao novo nome do jar.
+
 # 1.0
 
 * Módulo de atualização do Git

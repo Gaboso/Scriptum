@@ -19,11 +19,11 @@ __1° passo__: Execute o arquivo __`build.bat`__, presente no diretorio raiz des
 
 
 
-__2° passo__: Após a execução do primeiro passo, sera gerado o arquivo __`scriptum-[numero da versão]-jar-with-dependencies.jar`__ no diretorio
-`target`, para executar utilize o seguinte comando: __`java -jar scriptum-[numero da versão]-jar-with-dependencies.jar [caminho do workspace]`__.
+__2° passo__: Após a execução do primeiro passo, sera gerado o arquivo __`scriptum.jar`__ no diretorio
+`target`, para executar utilize o seguinte comando: __`java -jar scriptum.jar [caminho do workspace]`__.
 
 
-Exemplo do comando: __`java -jar scriptum-1.0-jar-with-dependencies.jar C:\workspace`__
+Exemplo do comando: __`java -jar scriptum.jar C:\workspace`__
 
 -----
 
