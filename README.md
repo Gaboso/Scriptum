@@ -6,10 +6,9 @@ Projeto para facilitar a manutenção de ambientes que utilizem: _Git_, _Maven_,
 
 ## Índice de conteúdo
 
-* [Como Utilizar](#instala%C3%A7%C3%A3oconfigura%C3%A7%C3%A3o "Como instalar o projeto")
+* [Como Utilizar](#como-utilizar "Como utilizar")
 * [Notas de release](#notas-de-release "Notas de release do projeto")
 * [Issues](#issues "Issues do projeto")
-* [Licença](#licen%C3%A7a "Licença")
 
 -----
 

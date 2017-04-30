@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Gabriel Carvalho - <gabrielsantiago2@gmail.com>
+ * @author Gaboso
  * @since 19/04/2017
  * <p>
- * br.com.gaboso.Scriptum
+ * Scriptum
  */
 public class Scriptum {
 
@@ -59,15 +59,18 @@ public class Scriptum {
         }
 
         if (listFiles != null) {
+
             //Is Maven Project
             if (MavenModule.isProject(listFiles)) {
                 MavenModule.executeCommands(file.getName(), file.getPath());
             }
 
+            //Is npm Project
             if (NpmModule.isProject(listFiles)) {
                 NpmModule.executeCommands(file.getName(), file.getPath());
             }
 
+            //Is Bower Project
             if (BowerModule.isProject(listFiles)) {
                 BowerModule.executeCommands(file.getName(), file.getPath());
             }
