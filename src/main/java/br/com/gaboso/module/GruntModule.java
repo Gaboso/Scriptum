@@ -20,7 +20,7 @@ public class GruntModule {
 
     public static boolean isProject(File[] listFiles) {
         for (File file : listFiles) {
-            if (!file.isDirectory() && "gruntfile.js".equals(file.getName()))
+            if (!file.isDirectory() && "gruntfile.js".equalsIgnoreCase(file.getName()))
                 return true;
         }
 
@@ -28,7 +28,7 @@ public class GruntModule {
     }
 
     public static void executeCommands(String projectName, String projectPath) {
-        LOGGER.info("Updating GRUNT Project --- " + projectName);
+        LOGGER.info("Updating Grunt Project --- " + projectName);
         CommandHelper.executeCMD("cd " + projectPath + "\\ && grunt");
     }
 
