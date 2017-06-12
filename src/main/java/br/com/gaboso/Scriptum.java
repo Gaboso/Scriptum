@@ -2,6 +2,7 @@ package br.com.gaboso;
 
 import br.com.gaboso.module.BowerModule;
 import br.com.gaboso.module.GitModule;
+import br.com.gaboso.module.GruntModule;
 import br.com.gaboso.module.MavenModule;
 import br.com.gaboso.module.NpmModule;
 import org.apache.log4j.Logger;
@@ -73,6 +74,11 @@ public class Scriptum {
             //Is Bower Project
             if (BowerModule.isProject(listFiles)) {
                 BowerModule.executeCommands(file.getName(), file.getPath());
+            }
+
+            //Is Grunt Project
+            if (GruntModule.isProject(listFiles)) {
+                GruntModule.executeCommands(file.getName(), file.getPath());
             }
         }
     }
