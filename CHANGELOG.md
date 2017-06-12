@@ -2,6 +2,13 @@
 
 Este arquivo descreve o conteúdo de cada release do projeto.
 
+# 1.2
+
+* Correção na maneira que o log é gerado.
+* Adição de módulo para projetos que utilizam Grunt.
+
+-----
+
 # 1.1
 
 * Correção nos links internos presentes no README.
