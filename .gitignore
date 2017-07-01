@@ -39,3 +39,4 @@ fabric.properties
 /.idea/libraries/
 *.log
 /target/
+/logs/
