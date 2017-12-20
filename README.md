@@ -14,7 +14,7 @@ Projeto para facilitar a manutenção de ambientes que utilizem: _Git_, _Maven_,
 
 ## Como utilizar
 
-__1° passo__: Execute o arquivo __`build.bat`__, presente no diretorio raiz deste projeto
+__1° passo__: Execute o arquivo __`build.bat`__ para (_Windows_) ou o __`build.sh`__ para (_Linux_), presente no diretorio raiz deste projeto
 
 
 

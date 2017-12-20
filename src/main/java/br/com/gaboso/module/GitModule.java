@@ -21,7 +21,11 @@ public class GitModule {
     }
 
     public static boolean isProject(String path) {
-        ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", "cd " + path + "\\ && git rev-parse --is-inside-work-tree");
+        boolean isWindows = System.getProperty("os.name").contains("Windows");
+        String runner = isWindows ? "cmd.exe" : "/bin/bash";
+        String option = isWindows ? "/c" : "-c";
+
+        ProcessBuilder builder = new ProcessBuilder(runner, option, "cd " + path + "/ && git rev-parse --is-inside-work-tree");
         builder.redirectErrorStream(true);
 
         try {
@@ -39,7 +43,7 @@ public class GitModule {
 
     public static void executeCommands(String projectName, String projectPath) {
         LOGGER.info("Updating Git Project --- " + projectName);
-        CommandHelper.executeCMD("cd " + projectPath + "\\ && git fetch && git pull origin");
+        CommandHelper.executeCMD("cd " + projectPath + "/ && git fetch && git pull origin");
     }
 
 }

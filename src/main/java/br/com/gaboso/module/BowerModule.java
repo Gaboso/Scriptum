@@ -29,7 +29,7 @@ public class BowerModule {
 
     public static void executeCommands(String projectName, String projectPath) {
         LOGGER.info("Updating Bower Project --- " + projectName);
-        CommandHelper.executeCMD("cd " + projectPath + "\\ && bower install && bower update");
+        CommandHelper.executeCMD("cd " + projectPath + "/ && bower install && bower update");
     }
 
 }

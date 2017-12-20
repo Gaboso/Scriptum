@@ -29,7 +29,7 @@ public class NpmModule {
 
     public static void executeCommands(String projectName, String projectPath) {
         LOGGER.info("Updating NPM Project --- " + projectName);
-        CommandHelper.executeCMD("cd " + projectPath + "\\ && npm install && npm update");
+        CommandHelper.executeCMD("cd " + projectPath + "/ && npm install && npm update");
     }
 
 }

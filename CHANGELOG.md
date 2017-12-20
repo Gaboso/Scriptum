@@ -2,6 +2,11 @@
 
 Este arquivo descreve o conteúdo de cada release do projeto.
 
+# 1.3.1
+
+* Adição de suporte ao Linux.
+
+
 # 1.2
 
 * Correção na maneira que o log é gerado.

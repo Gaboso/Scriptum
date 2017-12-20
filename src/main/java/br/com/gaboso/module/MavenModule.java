@@ -29,7 +29,7 @@ public class MavenModule {
 
     public static void executeCommands(String projectName, String projectPath) {
         LOGGER.info("Updating Maven Project --- " + projectName);
-        CommandHelper.executeCMD("cd " + projectPath + "\\ && mvn clean install -DskipTests=true");
+        CommandHelper.executeCMD("cd " + projectPath + "/ && mvn clean install -DskipTests=true");
     }
 
 }

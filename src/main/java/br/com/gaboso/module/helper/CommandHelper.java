@@ -19,7 +19,12 @@ public class CommandHelper {
     private static final Logger LOGGER = Logger.getLogger(CommandHelper.class);
 
     public static void executeCMD(String cmd) {
-        ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", cmd);
+
+        boolean isWindows = System.getProperty("os.name").contains("Windows");
+        String runner = isWindows ? "cmd.exe" : "/bin/bash";
+        String option = isWindows ? "/c" : "-c";
+
+        ProcessBuilder builder = new ProcessBuilder(runner, option, cmd);
         builder.redirectErrorStream(true);
 
         try {

@@ -29,7 +29,7 @@ public class GruntModule {
 
     public static void executeCommands(String projectName, String projectPath) {
         LOGGER.info("Updating Grunt Project --- " + projectName);
-        CommandHelper.executeCMD("cd " + projectPath + "\\ && grunt");
+        CommandHelper.executeCMD("cd " + projectPath + "/ && grunt");
     }
 
 }
