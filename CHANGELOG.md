@@ -2,6 +2,10 @@
 
 Este arquivo descreve o conteúdo de cada release do projeto.
 
+# 1.3.2
+
+* Correções e melhorias internasa além da limpeza de codigo.
+
 # 1.3.1
 
 * Adição de suporte ao Linux.

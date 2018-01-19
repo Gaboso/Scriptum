@@ -1,6 +1,6 @@
 # Scriptum
 
-Projeto para facilitar a manutenção de ambientes que utilizem: _Git_, _Maven_, _npm_ e _bower_ 
+Projeto para facilitar a manutenção de ambientes que utilizem: _Git_, _Maven_, _Grunt_, _npm_ e _bower_ 
 
 -----
 

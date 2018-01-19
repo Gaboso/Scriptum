@@ -1,5 +1,6 @@
 package br.com.gaboso.module;
 
+import br.com.gaboso.format.Formatter;
 import br.com.gaboso.module.helper.CommandHelper;
 import org.apache.log4j.Logger;
 
@@ -10,12 +11,12 @@ import java.io.InputStreamReader;
 /**
  * @author Gaboso
  * @since 29/04/2017
- * <p>
- * GitModule
+ * <p>GitModule</p>
  */
 public class GitModule {
 
     private static final Logger LOGGER = Logger.getLogger(GitModule.class);
+    private static final String NAME = "Git";
 
     private GitModule() {
     }
@@ -42,8 +43,11 @@ public class GitModule {
     }
 
     public static void executeCommands(String projectName, String projectPath) {
-        LOGGER.info("Updating Git Project --- " + projectName);
+        Formatter formatter = new Formatter(NAME);
+
+        LOGGER.info(formatter.getMessageStartUpdate(projectName));
         CommandHelper.executeCMD("cd " + projectPath + "/ && git fetch && git pull origin");
+        LOGGER.info(formatter.getMessageFinishUpdate(projectName));
     }
 
 }

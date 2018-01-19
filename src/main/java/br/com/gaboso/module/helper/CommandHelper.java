@@ -10,11 +10,12 @@ import java.io.InputStreamReader;
  * @author Gaboso
  * @since 29/04/2017
  * <p>
- * CommandHelper
+ * <p>CommandHelper</p>
  */
 public class CommandHelper {
 
-    private CommandHelper(){}
+    private CommandHelper() {
+    }
 
     private static final Logger LOGGER = Logger.getLogger(CommandHelper.class);
 
