@@ -1,8 +1,8 @@
 package br.com.gaboso.module;
 
 import br.com.gaboso.format.Formatter;
-import br.com.gaboso.module.helper.CommandHelper;
-import br.com.gaboso.module.helper.OsHelper;
+import br.com.gaboso.helper.CommandHelper;
+import br.com.gaboso.helper.OsHelper;
 import org.apache.log4j.Logger;
 
 import java.io.BufferedReader;

@@ -1,4 +1,4 @@
-package br.com.gaboso.module.helper;
+package br.com.gaboso.helper;
 
 public class OsHelper {
 
