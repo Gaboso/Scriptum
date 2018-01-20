@@ -20,23 +20,22 @@ public class CommandHelper {
     private static final Logger LOGGER = Logger.getLogger(CommandHelper.class);
 
     public static void executeCMD(String cmd) {
-
-        boolean isWindows = System.getProperty("os.name").contains("Windows");
-        String runner = isWindows ? "cmd.exe" : "/bin/bash";
-        String option = isWindows ? "/c" : "-c";
+        String runner = OsHelper.getRunner();
+        String option = OsHelper.getOption();
 
         ProcessBuilder builder = new ProcessBuilder(runner, option, cmd);
         builder.redirectErrorStream(true);
 
         try {
-            Process p = builder.start();
-            BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            String line;
+            Process process = builder.start();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
             while (true) {
-                line = r.readLine();
-                if (line == null)
+                String line = reader.readLine();
+
+                if (line == null) {
                     break;
+                }
 
                 LOGGER.info(line);
             }
