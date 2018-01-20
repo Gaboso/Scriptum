@@ -1,7 +1,8 @@
 package br.com.gaboso.module;
 
 import br.com.gaboso.format.Formatter;
-import br.com.gaboso.module.helper.CommandHelper;
+import br.com.gaboso.helper.CommandHelper;
+import br.com.gaboso.helper.OsHelper;
 import org.apache.log4j.Logger;
 
 import java.io.BufferedReader;
@@ -22,17 +23,16 @@ public class GitModule {
     }
 
     public static boolean isProject(String path) {
-        boolean isWindows = System.getProperty("os.name").contains("Windows");
-        String runner = isWindows ? "cmd.exe" : "/bin/bash";
-        String option = isWindows ? "/c" : "-c";
+        String runner = OsHelper.getRunner();
+        String option = OsHelper.getOption();
 
         ProcessBuilder builder = new ProcessBuilder(runner, option, "cd " + path + "/ && git rev-parse --is-inside-work-tree");
         builder.redirectErrorStream(true);
 
         try {
-            Process p = builder.start();
-            BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            String line = r.readLine();
+            Process process = builder.start();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line = reader.readLine();
             return "true".equals(line);
 
         } catch (IOException e) {
