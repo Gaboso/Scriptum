@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.4] - 2018-05-28
+
+### Added
+- Licença ao projeto
+
+### Changed
+- Estrutura interna de pacotes.
+
 ## [1.3.3] - 2018-01-20
 
 ### Added

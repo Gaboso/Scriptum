@@ -1,27 +1,27 @@
-package br.com.gaboso.module;
+package com.github.gaboso.module;
 
-import br.com.gaboso.format.Formatter;
-import br.com.gaboso.helper.CommandHelper;
+import com.github.gaboso.format.Formatter;
+import com.github.gaboso.helper.CommandHelper;
 import org.apache.log4j.Logger;
 
 import java.io.File;
 
 /**
  * @author Gaboso
- * @since 29/04/2017
- * <p>MavenModule</p>
+ * @since 12/06/2017
+ * <p>GruntModule</p>
  */
-public class MavenModule {
+public class GruntModule {
 
-    private static final Logger LOGGER = Logger.getLogger(MavenModule.class);
-    private static final String NAME = "Maven";
+    private static final Logger LOGGER = Logger.getLogger(GruntModule.class);
+    private static final String NAME = "Grunt";
 
-    private MavenModule() {
+    private GruntModule() {
     }
 
     public static boolean isProject(File[] listFiles) {
         for (File file : listFiles) {
-            if (!file.isDirectory() && "pom.xml".equals(file.getName())) {
+            if (!file.isDirectory() && "gruntfile.js".equalsIgnoreCase(file.getName())) {
                 return true;
             }
         }
@@ -33,7 +33,7 @@ public class MavenModule {
         Formatter formatter = new Formatter(NAME);
 
         LOGGER.info(formatter.getMessageStartUpdate(projectName));
-        CommandHelper.executeCMD("cd " + projectPath + "/ && mvn clean install -DskipTests=true");
+        CommandHelper.executeCMD("cd " + projectPath + "/ && grunt");
         LOGGER.info(formatter.getMessageFinishUpdate(projectName));
     }
 

@@ -1,11 +1,11 @@
-package br.com.gaboso;
+package com.github.gaboso;
 
-import br.com.gaboso.helper.FileHelper;
-import br.com.gaboso.module.BowerModule;
-import br.com.gaboso.module.GitModule;
-import br.com.gaboso.module.GruntModule;
-import br.com.gaboso.module.MavenModule;
-import br.com.gaboso.module.NpmModule;
+import com.github.gaboso.helper.FileHelper;
+import com.github.gaboso.module.BowerModule;
+import com.github.gaboso.module.GitModule;
+import com.github.gaboso.module.GruntModule;
+import com.github.gaboso.module.MavenModule;
+import com.github.gaboso.module.NpmModule;
 
 import java.io.File;
 import java.util.List;

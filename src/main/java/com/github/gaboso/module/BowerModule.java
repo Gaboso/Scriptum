@@ -1,7 +1,7 @@
-package br.com.gaboso.module;
+package com.github.gaboso.module;
 
-import br.com.gaboso.format.Formatter;
-import br.com.gaboso.helper.CommandHelper;
+import com.github.gaboso.format.Formatter;
+import com.github.gaboso.helper.CommandHelper;
 import org.apache.log4j.Logger;
 
 import java.io.File;
