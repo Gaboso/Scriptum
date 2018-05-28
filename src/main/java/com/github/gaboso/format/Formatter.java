@@ -1,4 +1,4 @@
-package br.com.gaboso.format;
+package com.github.gaboso.format;
 
 public class Formatter {
 

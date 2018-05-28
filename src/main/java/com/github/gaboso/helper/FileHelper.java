@@ -1,6 +1,6 @@
-package br.com.gaboso.helper;
+package com.github.gaboso.helper;
 
-import br.com.gaboso.Scriptum;
+import com.github.gaboso.Scriptum;
 import org.apache.log4j.Logger;
 
 import java.io.File;
