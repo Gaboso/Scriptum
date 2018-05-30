@@ -35,7 +35,7 @@ public class FileHelper {
         List<File> folders = new ArrayList<>();
 
         if (listFiles != null) {
-            LOGGER.info("------------- LISTA DE DIRETORIOS DO WORKSPACE -------------");
+            LOGGER.info("---------------- LIST OF DIRECTORIES FOUND ----------------");
             for (File file : listFiles) {
                 if (file.isDirectory()) {
                     folders.add(file);
