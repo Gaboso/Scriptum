@@ -1,6 +1,6 @@
 # Scriptum [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-Installer and updater dependencies for: _Git_, _Maven_, _Grunt_, _npm_ e _bower_ 
+Dependency installer and updater, for: _git_,  _npm_, _maven_, _bower_ and _grunt_ 
 
 -----
 
