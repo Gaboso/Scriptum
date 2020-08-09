@@ -2,65 +2,70 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.7] - 2020-08-09
+
+### Changed
+-  Changelog changed to English.
+
 ## [1.3.6] - 2020-08-09
 
 ### Changed
-- Atualizada a versão do Log4j.
+-  Version updated Log4j.
 
 ## [1.3.5] - 2020-08-09
 
 ### Changed
-- Atualizada a maneira que o log é gerado.
-- Corrigidos erros de digitação no changelog
+- Updated the way the log is generated.
+- Fixed typos in the changelog.
 
 ## [1.3.4] - 2018-05-28
 
 ### Added
-- Licença ao projeto
+- Project license
 
 ### Changed
-- Estrutura interna de pacotes.
+- Internal structure of packages.
 
 ## [1.3.3] - 2018-01-20
 
 ### Added
-- Função de iniciar o jar sem passar parâmetro do workspace.
-- Classe FileHelper, para auxiliar as ações envolvendo arquivos.
-- Classe OsHelper, para auxiliar as ações envolvendo propriedades do SO.
+- Function of starting the jar without passing a workspace parameter.
+- FileHelper class, to assist actions involving files.
+- OsHelper class, to assist actions involving OS properties.
 
 ### Changed
-- Estrutura interna de pacotes.
-- Estrutura do Changelog do projeto.
+- Internal structure of packages.
+- Changelog structure of the project.
 
 ## [1.3.2] - 2018-01-18
 
 ### Changed
-- Correções e melhorias internas além da limpeza de código.
+- Internal fixes and improvements in addition to code cleaning.
 
 ## [1.3.1] - 2017-12-20
 
 ### Added
-- Suporte ao Linux.
+- Linux support.
 
 ## [1.2] - 2017-07-12
 
 ### Added
-- Módulo para projetos que utilizam Grunt.
+- Module for projects that use Grunt.
 ### Changed
-- Correção na maneira que o log é gerado.
+- Correction in the way the log is generated.
 
 ## [1.1] - 2017-04-30
 
 ### Changed
-- Correção nos links internos presentes no README.
-- Modificado processo de build para executar com o `mvn install`.
-- Alterado nome final do jar para o nome do `artifactId` ficando reduzido a `scriptum.jar`
-- Ajuste dos exemplos no README.md para se adequar ao novo nome do jar.
+- Correction to the internal links present in the README.
+- Modified build process to run with `mvn install`.
+- Changed the final name of the jar to the name of `artifactId` being reduced to` scriptum.jar`
+- Adjust the examples in README.md to suit the new jar name.
 
 ## [1.0] - 2017-04-30
 
 ### Added
-- Módulo de atualização do Git
-- Módulo de instalação do Maven
-- Módulo de atualização e instalação do npm
-- Módulo de atualização e instalação do bower
+- Git update module
+- Maven installation module
+- Npm update module
+- Bower update module
