@@ -2,18 +2,18 @@ package com.github.gaboso.module;
 
 import com.github.gaboso.format.Formatter;
 import com.github.gaboso.helper.CommandHelper;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 
 /**
- * @author Gaboso
- * @since 12/06/2017
- * <p>GruntModule</p>
+ * @since 1.0
+ * Grunt Module
  */
 public class GruntModule {
 
-    private static final Logger LOGGER = Logger.getLogger(GruntModule.class);
+    private static final Logger LOGGER = LogManager.getLogger(GruntModule.class.getName());
     private static final String NAME = "Grunt";
 
     private GruntModule() {
