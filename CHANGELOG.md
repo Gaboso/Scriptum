@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.6] - 2020-08-09
+
+### Changed
+- Atualizada a versão do Log4j.
+
 ## [1.3.5] - 2020-08-09
 
 ### Changed
