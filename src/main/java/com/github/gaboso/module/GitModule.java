@@ -3,20 +3,20 @@ package com.github.gaboso.module;
 import com.github.gaboso.format.Formatter;
 import com.github.gaboso.helper.CommandHelper;
 import com.github.gaboso.helper.OsHelper;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * @author Gaboso
- * @since 29/04/2017
- * <p>GitModule</p>
+ * @since 1.0
+ * Git Module
  */
 public class GitModule {
 
-    private static final Logger LOGGER = Logger.getLogger(GitModule.class);
+    private static final Logger LOGGER = LogManager.getLogger(GitModule.class.getName());
     private static final String NAME = "Git";
 
     private GitModule() {

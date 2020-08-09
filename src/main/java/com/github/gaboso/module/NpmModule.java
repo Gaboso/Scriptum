@@ -2,18 +2,18 @@ package com.github.gaboso.module;
 
 import com.github.gaboso.format.Formatter;
 import com.github.gaboso.helper.CommandHelper;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 
 /**
- * @author Gaboso
- * @since 29/04/2017
- * <p>NpmModule</p>
+ * @since 1.0
+ * Npm Module
  */
 public class NpmModule {
 
-    private static final Logger LOGGER = Logger.getLogger(NpmModule.class);
+    private static final Logger LOGGER = LogManager.getLogger(NpmModule.class.getName());
     private static final String NAME = "NPM";
 
     private NpmModule() {

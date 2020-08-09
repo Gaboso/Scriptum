@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.5] - 2020-08-09
+
+### Changed
+- Atualizada a maneira que o log é gerado.
+- Corrigidos erros de digitação no changelog
+
 ## [1.3.4] - 2018-05-28
 
 ### Added
@@ -13,9 +19,9 @@ All notable changes to this project will be documented in this file.
 ## [1.3.3] - 2018-01-20
 
 ### Added
-- Função de iniciar o jar sem passar paramêtro do workspace.
-- Classe FileHelper, para auxiliar ações envolvendo arquivos.
-- Classe OsHelper, para auxiliar ações envolvendo propreidades do SO.
+- Função de iniciar o jar sem passar parâmetro do workspace.
+- Classe FileHelper, para auxiliar as ações envolvendo arquivos.
+- Classe OsHelper, para auxiliar as ações envolvendo propriedades do SO.
 
 ### Changed
 - Estrutura interna de pacotes.
@@ -24,7 +30,7 @@ All notable changes to this project will be documented in this file.
 ## [1.3.2] - 2018-01-18
 
 ### Changed
-- Correções e melhorias internas além da limpeza de codigo.
+- Correções e melhorias internas além da limpeza de código.
 
 ## [1.3.1] - 2017-12-20
 

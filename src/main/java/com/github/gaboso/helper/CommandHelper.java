@@ -1,23 +1,22 @@
 package com.github.gaboso.helper;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * @author Gaboso
- * @since 29/04/2017
- * <p>
- * <p>CommandHelper</p>
+ * @since 1.0
+ * Command Helper
  */
 public class CommandHelper {
 
     private CommandHelper() {
     }
 
-    private static final Logger LOGGER = Logger.getLogger(CommandHelper.class);
+    private static final Logger LOGGER = LogManager.getLogger(CommandHelper.class.getName());
 
     public static void executeCMD(String cmd) {
         String runner = OsHelper.getRunner();
