@@ -15,7 +15,7 @@ All notable changes to this project will be documented in this file.
 ## [1.3.5] - 2020-08-09
 
 ### Changed
-- Updated the way the log is generated.
+- Updated the way the log was generate.
 - Fixed typos in the changelog.
 
 ## [1.3.4] - 2018-05-28

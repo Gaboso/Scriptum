@@ -18,8 +18,8 @@ public class Scriptum {
 
     public static void main(String[] args) {
         String workspaceDir = args.length > 0
-                ? args[0]
-                : FileHelper.getJarDir();
+            ? args[0]
+            : FileHelper.getJarDir();
 
         List<File> folders = FileHelper.getFoldersFromWorkspace(workspaceDir);
 
