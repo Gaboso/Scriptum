@@ -2,10 +2,10 @@ package com.github.gaboso.module;
 
 import com.github.gaboso.format.Formatter;
 import com.github.gaboso.helper.CommandHelper;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * @since 1.0
@@ -13,28 +13,21 @@ import java.io.File;
  */
 public class MavenModule {
 
-    private static final Logger LOGGER = LogManager.getLogger(MavenModule.class.getName());
-    private static final String NAME = "Maven";
-
     private MavenModule() {
     }
 
     public static boolean isProject(File[] listFiles) {
-        for (File file : listFiles) {
-            if (!file.isDirectory() && "pom.xml".equals(file.getName())) {
-                return true;
-            }
-        }
-
-        return false;
+        return Arrays.stream(listFiles)
+                     .filter(Objects::nonNull)
+                     .filter(file -> !file.isDirectory())
+                     .map(File::getName)
+                     .anyMatch("pom.xml"::equals);
     }
 
     public static void executeCommands(String projectName, String projectPath) {
-        Formatter formatter = new Formatter(NAME);
+        Formatter formatter = new Formatter("Maven", projectName);
 
-        LOGGER.info(formatter.getMessageStartUpdate(projectName));
-        CommandHelper.executeCMD("cd " + projectPath + "/ && mvn clean install -DskipTests=true");
-        LOGGER.info(formatter.getMessageFinishUpdate(projectName));
+        CommandHelper.executeCMD(projectPath, "mvn clean install -DskipTests=true", formatter);
     }
 
 }

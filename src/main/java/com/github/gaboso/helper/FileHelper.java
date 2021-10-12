@@ -8,7 +8,9 @@ import java.io.File;
 import java.net.URISyntaxException;
 import java.security.CodeSource;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class FileHelper {
 
@@ -35,16 +37,19 @@ public class FileHelper {
         File[] listFiles = fileInitial.listFiles();
         List<File> folders = new ArrayList<>();
 
-        if (listFiles != null) {
-            LOGGER.info("---------------- LIST OF DIRECTORIES FOUND ----------------");
-            for (File file : listFiles) {
-                if (file.isDirectory()) {
-                    folders.add(file);
-                    LOGGER.info(file.getName());
-                }
-            }
-            LOGGER.info("------------------------------------------------------------");
+        if (listFiles == null) {
+            return folders;
         }
+
+        LOGGER.info("---------------- LIST OF DIRECTORIES FOUND ----------------");
+        Arrays.stream(listFiles)
+            .filter(Objects::nonNull)
+            .filter(File::isDirectory)
+            .forEach(folder -> {
+                folders.add(folder);
+                LOGGER.info(folder.getName());
+            });
+        LOGGER.info("------------------------------------------------------------");
 
         return folders;
     }

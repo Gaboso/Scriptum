@@ -2,10 +2,10 @@ package com.github.gaboso.module;
 
 import com.github.gaboso.format.Formatter;
 import com.github.gaboso.helper.CommandHelper;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * @since 1.0
@@ -13,28 +13,21 @@ import java.io.File;
  */
 public class NpmModule {
 
-    private static final Logger LOGGER = LogManager.getLogger(NpmModule.class.getName());
-    private static final String NAME = "NPM";
-
     private NpmModule() {
     }
 
     public static boolean isProject(File[] listFiles) {
-        for (File file : listFiles) {
-            if (!file.isDirectory() && "package.json".equals(file.getName())) {
-                return true;
-            }
-        }
-
-        return false;
+        return Arrays.stream(listFiles)
+                     .filter(Objects::nonNull)
+                     .filter(file -> !file.isDirectory())
+                     .map(File::getName)
+                     .anyMatch("package.json"::equals);
     }
 
     public static void executeCommands(String projectName, String projectPath) {
-        Formatter formatter = new Formatter(NAME);
+        Formatter formatter = new Formatter("NPM", projectName);
 
-        LOGGER.info(formatter.getMessageStartUpdate(projectName));
-        CommandHelper.executeCMD("cd " + projectPath + "/ && npm install && npm update");
-        LOGGER.info(formatter.getMessageFinishUpdate(projectName));
+        CommandHelper.executeCMD(projectPath, "npm install && npm update", formatter);
     }
 
 }

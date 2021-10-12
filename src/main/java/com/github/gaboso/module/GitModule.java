@@ -17,7 +17,6 @@ import java.io.InputStreamReader;
 public class GitModule {
 
     private static final Logger LOGGER = LogManager.getLogger(GitModule.class.getName());
-    private static final String NAME = "Git";
 
     private GitModule() {
     }
@@ -34,7 +33,6 @@ public class GitModule {
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String line = reader.readLine();
             return "true".equals(line);
-
         } catch (IOException e) {
             LOGGER.error(e.getMessage(), e);
         }
@@ -43,11 +41,9 @@ public class GitModule {
     }
 
     public static void executeCommands(String projectName, String projectPath) {
-        Formatter formatter = new Formatter(NAME);
+        Formatter formatter = new Formatter("Git", projectName);
 
-        LOGGER.info(formatter.getMessageStartUpdate(projectName));
-        CommandHelper.executeCMD("cd " + projectPath + "/ && git fetch && git pull origin");
-        LOGGER.info(formatter.getMessageFinishUpdate(projectName));
+        CommandHelper.executeCMD(projectPath, "git fetch && git pull origin", formatter);
     }
 
 }

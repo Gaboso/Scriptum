@@ -1,5 +1,6 @@
 package com.github.gaboso.helper;
 
+import com.github.gaboso.format.Formatter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,11 +19,15 @@ public class CommandHelper {
 
     private static final Logger LOGGER = LogManager.getLogger(CommandHelper.class.getName());
 
-    public static void executeCMD(String cmd) {
+    public static void executeCMD(String path, String cmd, Formatter formatter) {
+        LOGGER.info(formatter.getMessageStartUpdate());
+
         String runner = OsHelper.getRunner();
         String option = OsHelper.getOption();
 
-        ProcessBuilder builder = new ProcessBuilder(runner, option, cmd);
+        String command = "cd " + path + "/ && " + cmd;
+
+        ProcessBuilder builder = new ProcessBuilder(runner, option, command);
         builder.redirectErrorStream(true);
 
         try {
@@ -41,6 +46,7 @@ public class CommandHelper {
         } catch (IOException e) {
             LOGGER.error(e.getMessage(), e);
         }
+        LOGGER.info(formatter.getMessageFinishUpdate());
     }
 
 }

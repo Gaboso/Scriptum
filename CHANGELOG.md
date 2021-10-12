@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.0] - 2021-10-12
+
+### Changed
+-  Update modules logic to prevent NPE
+
 ## [1.3.7] - 2020-08-09
 
 ### Changed
@@ -15,7 +20,7 @@ All notable changes to this project will be documented in this file.
 ## [1.3.5] - 2020-08-09
 
 ### Changed
-- Updated the way the log was generate.
+- Updated the way the log was generated.
 - Fixed typos in the changelog.
 
 ## [1.3.4] - 2018-05-28
