@@ -12,6 +12,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * @since 1.3.3
+ * File Helper
+ */
 public class FileHelper {
 
     private static final Logger LOGGER = LogManager.getLogger(FileHelper.class.getName());
@@ -43,12 +47,12 @@ public class FileHelper {
 
         LOGGER.info("---------------- LIST OF DIRECTORIES FOUND ----------------");
         Arrays.stream(listFiles)
-            .filter(Objects::nonNull)
-            .filter(File::isDirectory)
-            .forEach(folder -> {
-                folders.add(folder);
-                LOGGER.info(folder.getName());
-            });
+              .filter(Objects::nonNull)
+              .filter(File::isDirectory)
+              .forEach(folder -> {
+                  folders.add(folder);
+                  LOGGER.info(folder.getName());
+              });
         LOGGER.info("------------------------------------------------------------");
 
         return folders;

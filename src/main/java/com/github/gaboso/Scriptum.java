@@ -23,35 +23,36 @@ public class Scriptum {
 
         List<File> folders = FileHelper.getFoldersFromWorkspace(workspaceDir);
 
-        for (File file : folders) {
-            Scriptum.analyzeFolders(file);
+        for (File folder : folders) {
+            Scriptum.analyzeFolder(folder);
         }
 
     }
 
-    private static void analyzeFolders(File file) {
+    private static void analyzeFolder(File file) {
         File[] listFiles = file.listFiles();
+        String path = file.getPath();
+        String fileName = file.getName();
 
-        if (GitModule.isProject(file.getPath())) {
-            GitModule.executeCommands(file.getName(), file.getPath());
+        if (GitModule.isProject(path)) {
+            GitModule.executeCommands(fileName, path);
         }
 
         if (listFiles != null) {
-
             if (MavenModule.isProject(listFiles)) {
-                MavenModule.executeCommands(file.getName(), file.getPath());
+                MavenModule.executeCommands(fileName, path);
             }
 
             if (NpmModule.isProject(listFiles)) {
-                NpmModule.executeCommands(file.getName(), file.getPath());
+                NpmModule.executeCommands(fileName, path);
             }
 
             if (BowerModule.isProject(listFiles)) {
-                BowerModule.executeCommands(file.getName(), file.getPath());
+                BowerModule.executeCommands(fileName, path);
             }
 
             if (GruntModule.isProject(listFiles)) {
-                GruntModule.executeCommands(file.getName(), file.getPath());
+                GruntModule.executeCommands(fileName, path);
             }
         }
     }

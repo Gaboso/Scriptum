@@ -1,5 +1,9 @@
 package com.github.gaboso.format;
 
+/**
+ * @since 1.3.2
+ * Log message Formatter
+ */
 public class Formatter {
 
     private final String type;

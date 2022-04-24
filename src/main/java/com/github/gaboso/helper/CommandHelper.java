@@ -14,10 +14,10 @@ import java.io.InputStreamReader;
  */
 public class CommandHelper {
 
+    private static final Logger LOGGER = LogManager.getLogger(CommandHelper.class.getName());
+
     private CommandHelper() {
     }
-
-    private static final Logger LOGGER = LogManager.getLogger(CommandHelper.class.getName());
 
     public static void executeCMD(String path, String cmd, Formatter formatter) {
         LOGGER.info(formatter.getMessageStartUpdate());

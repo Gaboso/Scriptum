@@ -12,7 +12,7 @@ Run the __`build.bat`__ file for _Windows_ or __`build.sh`__ for _Linux_, both a
 
 ## How to use
 
-[Download latest version](https://github.com/Gaboso/Scriptum/releases/latest "latest version") or [Build jar](#how-to-build "build project")
+[Download the latest version](https://github.com/Gaboso/Scriptum/releases/latest "latest version") or [Build jar](#how-to-build "build project")
 
 There are two ways to run:
 * Workspace path as a parameter:
