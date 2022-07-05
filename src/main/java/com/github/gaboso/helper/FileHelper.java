@@ -1,6 +1,6 @@
 package com.github.gaboso.helper;
 
-import com.github.gaboso.Scriptum;
+import com.github.gaboso.Main;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -24,7 +24,7 @@ public class FileHelper {
     }
 
     public static String getJarDir() {
-        CodeSource codeSource = Scriptum.class.getProtectionDomain().getCodeSource();
+        CodeSource codeSource = Main.class.getProtectionDomain().getCodeSource();
 
         try {
             File jarFile = new File(codeSource.getLocation().toURI().getPath());
