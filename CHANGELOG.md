@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0] - 2022-07-05
+
+### Changed
+
+- Update log4j dependency from 1.17.2 to 1.18.0
+- Update maven-assembly-plugin dependency from 3.3.0 to 3.4.0
+- Split Scriptum class in other two classes
+- Change jar entry point from Scriptum class to Main class
+- Change Modules to implements Module interface
+- Update maven build final name, to use name and version
+
+
 ## [1.4.1] - 2022-04-24
 
 ### Changed
