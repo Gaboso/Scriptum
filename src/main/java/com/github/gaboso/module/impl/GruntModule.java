@@ -1,6 +1,6 @@
 package com.github.gaboso.module.impl;
 
-import com.github.gaboso.helper.CommandHelper;
+import com.github.gaboso.helper.CommandExecutor;
 import com.github.gaboso.module.Module;
 import com.github.gaboso.module.ModuleTypeEnum;
 
@@ -14,19 +14,25 @@ import java.util.Objects;
  */
 public class GruntModule implements Module {
 
+    private final CommandExecutor commandExecutor;
+
+    public GruntModule(CommandExecutor commandExecutor) {
+        this.commandExecutor = commandExecutor;
+    }
+
     @Override
     public boolean isProject(File[] listFiles) {
         return Arrays.stream(listFiles)
             .filter(Objects::nonNull)
             .filter(file -> !file.isDirectory())
             .map(File::getName)
-            .anyMatch("gruntfile.js"::equals);
+            .anyMatch("gruntfile.js"::equalsIgnoreCase);
     }
 
     @Override
     public void executeCommands(String projectPath) {
         String command = this.getType().getCommand();
-        CommandHelper.executeCMD(projectPath, command);
+        commandExecutor.executeCMD(projectPath, command);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.github.gaboso;
 
+import com.github.gaboso.helper.CommandExecutor;
 import com.github.gaboso.module.GitModule;
 import com.github.gaboso.module.Module;
 import com.github.gaboso.module.ModuleTypeEnum;
@@ -22,12 +23,22 @@ public class ModuleRunner {
 
     private static final Logger LOGGER = LogManager.getLogger(ModuleRunner.class.getName());
 
-    private final List<Module> modules = Arrays.asList(
-        new BowerModule(),
-        new GruntModule(),
-        new MavenModule(),
-        new NpmModule()
-    );
+    private final GitModule gitModule;
+
+    private final List<Module> modules;
+
+    public ModuleRunner() {
+        CommandExecutor commandExecutor = new CommandExecutor();
+
+        this.gitModule = new GitModule(commandExecutor);
+
+        this.modules = Arrays.asList(
+            new BowerModule(commandExecutor),
+            new GruntModule(commandExecutor),
+            new MavenModule(commandExecutor),
+            new NpmModule(commandExecutor)
+        );
+    }
 
     public void runAll(List<File> folders) {
         folders.forEach(this::run);
@@ -37,10 +48,10 @@ public class ModuleRunner {
         String path = folder.getPath();
         String folderName = folder.getName();
 
-        if (GitModule.isProject(path)) {
+        if (gitModule.isProject(path)) {
             String typeName = ModuleTypeEnum.GIT.getTypeName();
             printStartMessage(typeName, folderName);
-            GitModule.executeCommands(path);
+            gitModule.executeCommands(path);
             printFinishMessage(typeName, folderName);
         }
 

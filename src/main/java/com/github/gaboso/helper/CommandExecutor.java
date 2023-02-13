@@ -12,14 +12,11 @@ import java.io.InputStreamReader;
  * @since 1.0
  * Command Helper
  */
-public class CommandHelper {
+public class CommandExecutor {
 
-    private static final Logger LOGGER = LogManager.getLogger(CommandHelper.class.getName());
+    private static final Logger LOGGER = LogManager.getLogger(CommandExecutor.class.getName());
 
-    private CommandHelper() {
-    }
-
-    public static void executeCMD(String path, String cmd) {
+    public void executeCMD(String path, String cmd) {
         OpSystemEnum currentOs = OpSystemEnum.getCurrentOs();
         String runner = currentOs.getRunner();
         String option = currentOs.getOption();

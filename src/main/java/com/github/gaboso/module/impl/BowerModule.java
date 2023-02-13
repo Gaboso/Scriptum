@@ -1,6 +1,6 @@
 package com.github.gaboso.module.impl;
 
-import com.github.gaboso.helper.CommandHelper;
+import com.github.gaboso.helper.CommandExecutor;
 import com.github.gaboso.module.Module;
 import com.github.gaboso.module.ModuleTypeEnum;
 
@@ -14,6 +14,12 @@ import java.util.Objects;
  */
 public class BowerModule implements Module {
 
+    private final CommandExecutor commandExecutor;
+
+    public BowerModule(CommandExecutor commandExecutor) {
+        this.commandExecutor = commandExecutor;
+    }
+
     @Override
     public boolean isProject(File[] listFiles) {
         return Arrays.stream(listFiles)
@@ -26,7 +32,7 @@ public class BowerModule implements Module {
     @Override
     public void executeCommands(String projectPath) {
         String command = this.getType().getCommand();
-        CommandHelper.executeCMD(projectPath, command);
+        commandExecutor.executeCMD(projectPath, command);
     }
 
     @Override
