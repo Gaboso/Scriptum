@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - Update log4j dependency from 2.18.0 to 2.19.0
-- Update maven-assembly-plugin dependency from 3.4.0 to 3.4.2
+- Update maven-assembly-plugin dependency from 3.4.1 to 3.4.2
 - Improve logger logic in ModuleRunner
 - Renamed class from CommandHelper to CommandExecutor
 
