@@ -6,6 +6,8 @@ public interface Module {
 
     boolean isProject(File[] listFiles);
 
-    void executeCommands(String projectName, String projectPath);
+    void executeCommands(String projectPath);
+
+    ModuleTypeEnum getType();
 
 }

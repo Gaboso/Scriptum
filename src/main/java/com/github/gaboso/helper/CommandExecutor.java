@@ -1,6 +1,6 @@
 package com.github.gaboso.helper;
 
-import com.github.gaboso.format.Formatter;
+import com.github.gaboso.os.OpSystemEnum;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,18 +12,14 @@ import java.io.InputStreamReader;
  * @since 1.0
  * Command Helper
  */
-public class CommandHelper {
+public class CommandExecutor {
 
-    private static final Logger LOGGER = LogManager.getLogger(CommandHelper.class.getName());
+    private static final Logger LOGGER = LogManager.getLogger(CommandExecutor.class.getName());
 
-    private CommandHelper() {
-    }
-
-    public static void executeCMD(String path, String cmd, Formatter formatter) {
-        LOGGER.info(formatter.getMessageStartUpdate());
-
-        String runner = OsHelper.getRunner();
-        String option = OsHelper.getOption();
+    public void executeCMD(String path, String cmd) {
+        OpSystemEnum currentOs = OpSystemEnum.getCurrentOs();
+        String runner = currentOs.getRunner();
+        String option = currentOs.getOption();
 
         String command = "cd " + path + "/ && " + cmd;
 
@@ -46,7 +42,6 @@ public class CommandHelper {
         } catch (IOException e) {
             LOGGER.error(e.getMessage(), e);
         }
-        LOGGER.info(formatter.getMessageFinishUpdate());
     }
 
 }

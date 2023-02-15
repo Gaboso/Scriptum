@@ -1,8 +1,7 @@
 package com.github.gaboso.module;
 
-import com.github.gaboso.format.Formatter;
-import com.github.gaboso.helper.CommandHelper;
-import com.github.gaboso.helper.OsHelper;
+import com.github.gaboso.helper.CommandExecutor;
+import com.github.gaboso.os.OpSystemEnum;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,12 +17,16 @@ public class GitModule {
 
     private static final Logger LOGGER = LogManager.getLogger(GitModule.class.getName());
 
-    private GitModule() {
+    private final CommandExecutor commandExecutor;
+
+    public GitModule(CommandExecutor commandExecutor) {
+        this.commandExecutor = commandExecutor;
     }
 
-    public static boolean isProject(String path) {
-        String runner = OsHelper.getRunner();
-        String option = OsHelper.getOption();
+    public boolean isProject(String path) {
+        OpSystemEnum currentOs = OpSystemEnum.getCurrentOs();
+        String runner = currentOs.getRunner();
+        String option = currentOs.getOption();
 
         ProcessBuilder builder = new ProcessBuilder(runner, option, "cd " + path + "/ && git rev-parse --is-inside-work-tree");
         builder.redirectErrorStream(true);
@@ -40,10 +43,9 @@ public class GitModule {
         return false;
     }
 
-    public static void executeCommands(String projectName, String projectPath) {
-        Formatter formatter = new Formatter("Git", projectName);
-
-        CommandHelper.executeCMD(projectPath, "git fetch && git pull origin", formatter);
+    public void executeCommands(String projectPath) {
+        String command = ModuleTypeEnum.GIT.getCommand();
+        commandExecutor.executeCMD(projectPath, command);
     }
 
 }

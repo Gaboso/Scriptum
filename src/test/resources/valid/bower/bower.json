@@ -1,0 +1,8 @@
+{
+    "name": "example-app",
+    "version": "0.0.1",
+    "main": "public/javascripts/app.js",
+    "dependencies": {
+        "lodash": "~4.0.0"
+    }
+}

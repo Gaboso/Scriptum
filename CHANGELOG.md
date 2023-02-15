@@ -2,11 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.0] - 2023-02-15
+
+### Changed
+- Update log4j dependency from 2.18.0 to 2.19.0
+- Update maven-assembly-plugin dependency from 3.4.1 to 3.4.2
+- Improve logger logic in ModuleRunner
+- Renamed class from CommandHelper to CommandExecutor
+
+### Added
+
+- Unit tests and unit tests dependencies: JUnit and mockito
+- Created ModuleTypeEnum to store module name and commands
+- Created OpSystemEnum to store OS runner and option
+
+### Removed
+
+- Formatter class
+- OsHelper class
+
 ## [2.0.0] - 2022-07-05
 
 ### Changed
 
-- Update log4j dependency from 1.17.2 to 1.18.0
+- Update log4j dependency from 2.17.2 to 2.18.0
 - Update maven-assembly-plugin dependency from 3.3.0 to 3.4.0
 - Split Scriptum class in other two classes
 - Change jar entry point from Scriptum class to Main class
