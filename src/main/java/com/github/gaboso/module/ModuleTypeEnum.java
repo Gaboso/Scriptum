@@ -1,5 +1,9 @@
 package com.github.gaboso.module;
 
+/**
+ * @since 3.0.0
+ * ModuleTypeEnum
+ */
 public enum ModuleTypeEnum {
 
     MAVEN("Maven", "mvn clean install -DskipTests=true"),

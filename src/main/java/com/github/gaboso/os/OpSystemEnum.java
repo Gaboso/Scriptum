@@ -1,5 +1,9 @@
 package com.github.gaboso.os;
 
+/**
+ * @since 3.0.0
+ * OpSystemEnum
+ */
 public enum OpSystemEnum {
 
     WINDOWS("cmd.exe", "/c"),
