@@ -33,7 +33,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <log.version>2.19.0</log.version>
-        <junit.version>5.9.0</junit.version>
+        <junit.version>5.9.2</junit.version>
         <mockito.version>5.1.1</mockito.version>
         <surefire-plugin.version>3.0.0-M8</surefire-plugin.version>
     </properties>
